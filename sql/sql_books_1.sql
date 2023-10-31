@@ -2,6 +2,8 @@
 truncate table order_item;
 -- delete from books;
 
+select * from hits_table;
+
 INSERT INTO books (publisher, title, link, author, pub_date, description, isbn, isbn13, item_id, price_sales, price_standard, stock_status, cover, category_id, category_name, customer_review_rank)
 SELECT
     publisher,

@@ -2,16 +2,19 @@ use bookshop;
 
 select * from identity;
 
+select * from today_book;
+truncate table today_book;
+
 select * from cart;
 
 select * from book_comment;
 truncate table book_comment;
+truncate table reply_comments;
 select * from profile;
 
 truncate table foreignbook;
 truncate table identity;
 
-select * from foreignbook;
 select * from foreign_books;
 
 SELECT * FROM books WHERE SUBSTRING(books.category_name, 1, 4) LIKE '국내도서%';

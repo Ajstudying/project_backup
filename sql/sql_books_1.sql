@@ -3,6 +3,7 @@ truncate table order_item;
 -- delete from books;
 
 select * from hits_table;
+truncate table hits_table;
 
 INSERT INTO books (publisher, title, link, author, pub_date, description, isbn, isbn13, item_id, price_sales, price_standard, stock_status, cover, category_id, category_name, customer_review_rank)
 SELECT
@@ -24,6 +25,13 @@ SELECT
     customer_review_rank
 FROM book
 WHERE item_id != '' AND item_id REGEXP '^[0-9]+$' AND SUBSTRING(item_id, 6, 2) REGEXP '^[0-9]+$';
+
+
+update books set stock_status = "정상";
+update new_books set stock_status = "예약판매";
+update foreign_books set stock_status = "예약판매";
+
+update books set stock_status = "품절" where SUBSTRING(books.category_name, 1, 7) LIKE '외국도서%';
 
 -- 일부도서 직접 업데이트--
 -- 노인 --

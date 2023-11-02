@@ -11,6 +11,10 @@ select * from book_comment;
 truncate table book_comment;
 truncate table reply_comments;
 select * from profile;
+select * from hits_table;
+
+
+truncate table hits_table;
 
 truncate table foreignbook;
 truncate table identity;
@@ -33,6 +37,10 @@ FROM foreign_1;
 INSERT INTO books (publisher, title, link, author, pub_date, description, isbn, isbn13, item_id, price_sales, price_standard, stock_status, cover, category_id, category_name, customer_review_rank)
 SELECT publisher, title, link, author, pubDate, description, isbn, isbn13, itemId, priceSales, priceStandard, stockStatus, cover, categoryId, categoryName, customerReviewRank
 FROM foreignbook;
+
+INSERT INTO order_item (publisher, title, link, author, pub_date, description, isbn, isbn13, item_id, price_sales, price_standard, stock_status, cover, category_id, category_name, customer_review_rank)
+SELECT publisher, title, link, author, pubDate, description, isbn, isbn13, itemId, priceSales, priceStandard, stockStatus, cover, categoryId, categoryName, customerReviewRank
+FROM foreign_1;
 
 CREATE TABLE `books` (
   `id` bigint NOT NULL AUTO_INCREMENT,
@@ -66,6 +74,15 @@ truncate table new_books;
 select * from new_books;
 
 select * from order_item;
+truncate table order_item;
+
+
+SELECT books.id, books.publisher, books.title, books.link, books.author, books.pub_date, books.description, 
+books.isbn, books.isbn13, books.item_id, books.price_sales, books.price_standard, books.stock_status, 
+books.cover, books.category_id, books.category_name, books.customer_review_rank, order_item.id, 
+order_item.item_id, order_item.quantity, order_item.order_price, order_item.order_id FROM books 
+INNER JOIN order_item ON order_item.item_id = books.item_id GROUP BY books.item_id, order_item.item_id, 
+books.id, order_item.id ORDER BY SUM(order_item.quantity) DESC LIMIT 10;
 
 CREATE TABLE `book` (
   `id` int DEFAULT NULL,

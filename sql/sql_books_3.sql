@@ -67,22 +67,47 @@ CREATE TABLE `books` (
 select * from books;
 select * from books order by books.id DESC;
 
+select * from books where books.item_id=27653184;
+
 select * from book;
 truncate table books;
 
 truncate table new_books;
 select * from new_books;
 
+select * from order_sales order by book_sales DESC;
+
+select * from order_sales;
 select * from order_item;
 truncate table order_item;
+truncate table order_sales;
 
+INSERT INTO `order_sales`
+(`id`,
+`book_sales`,
+`item_id`,
+`status`,
+`book_id`)
+VALUES
+(11, 28, 27653184, 1 , 790);
+
+update order_sales set book_sales=40 where id = 3;
+
+
+select title, SUM(order_item.quantity) from books
+join order_item on books.item_id = order_item.item_id
+group by title
+order by 2
+DESC LIMIT 10;
+
+SELECT books.id, books.publisher, books.title, books.link, books.author, books.pub_date, books.description, books.isbn, books.isbn13, books.item_id, books.price_sales, books.price_standard, books.stock_status, books.cover, books.category_id, books.category_name, books.customer_review_rank, order_item.id, order_item.item_id, order_item.quantity, order_item.order_price, order_item.order_id FROM books INNER JOIN order_item ON order_item.item_id = books.item_id GROUP BY books.item_id, order_item.item_id, books.id, order_item.id ORDER BY SUM(order_item.quantity) DESC;
 
 SELECT books.id, books.publisher, books.title, books.link, books.author, books.pub_date, books.description, 
-books.isbn, books.isbn13, books.item_id, books.price_sales, books.price_standard, books.stock_status, 
-books.cover, books.category_id, books.category_name, books.customer_review_rank, order_item.id, 
-order_item.item_id, order_item.quantity, order_item.order_price, order_item.order_id FROM books 
+books.isbn, books.isbn13, books.item_id, books.price_sales, books.price_standard, books.stock_status, books.cover, 
+books.category_id, books.category_name, books.customer_review_rank, order_item.id, order_item.item_id, 
+order_item.quantity, order_item.order_price, order_item.order_id FROM books 
 INNER JOIN order_item ON order_item.item_id = books.item_id GROUP BY books.item_id, order_item.item_id, 
-books.id, order_item.id ORDER BY SUM(order_item.quantity) DESC LIMIT 10;
+books.id, order_item.id ORDER BY SUM(order_item.quantity) DESC LIMIT 20;
 
 CREATE TABLE `book` (
   `id` int DEFAULT NULL,

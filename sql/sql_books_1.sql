@@ -68,6 +68,26 @@ update books set cover = "https://image.aladin.co.kr/product/32749/84/cover500/k
 update books set cover = "https://image.aladin.co.kr/product/32755/71/cover500/f31293608d_1.jpg" where item_id = 327557176;
 -- 두근두근 --
 update books set cover = "https://image.aladin.co.kr/product/30367/54/cover500/k762839756_2.jpg" where item_id = 303675490;
+-- 바닥 놀이 --
+update books set cover = "https://image.aladin.co.kr/product/32761/99/cover500/k982936289_1.jpg" where id = 10;
+-- 초등 한자 --
+update books set cover = "https://image.aladin.co.kr/product/32085/44/cover500/k232834093_1.jpg" where id = 564;
+-- 전략 --
+update books set cover = "https://image.aladin.co.kr/product/7131/87/cover500/k912434998_1.jpg" where id = 381;
+-- 어쩌다 --
+update books set cover = "https://image.aladin.co.kr/product/14425/96/cover500/k902532140_2.jpg" where id = 314;
+-- 일본어 천재 --
+update books set cover = "https://image.aladin.co.kr/product/604/29/cover500/8963700496_1.jpg" where id = 354;
+-- 집놀이 --
+update books set cover = "https://image.aladin.co.kr/product/11380/16/cover500/8983718072_2.jpg" where id = 849;
+-- 내동생 --
+update books set cover = "https://image.aladin.co.kr/product/66/71/cover500/8937841665_2.jpg" where id = 747;
+-- 우리는 --
+update books set cover = "https://image.aladin.co.kr/product/11348/25/cover500/896247851x_2.jpg" where id = 176;
+-- 골프 내공--
+update books set cover = "https://image.aladin.co.kr/product/669/30/cover500/8963701425_1.jpg" where id = 384;
+
+update books set cover = "https://image.aladin.co.kr/product/669/30/cover500/8963701425_1.jpg" where id = 384;
 
 
 

@@ -13,6 +13,7 @@ truncate table reply_comments;
 select * from profile;
 select * from hits_table;
 
+select title, id, stock_status from books order by books.stock_status;
 
 truncate table hits_table;
 
@@ -81,6 +82,14 @@ select * from order_sales;
 select * from order_item;
 truncate table order_item;
 truncate table order_sales;
+
+select * from event_books;
+select * from alam_books;
+
+insert into books (publisher, title,author, description,item_id,cover,pub_date,price_standard,price_sales,
+stock_status,link,isbn,isbn13,category_id, category_name, customer_review_rank)
+select publisher, title,author, description,item_id,cover,"2022-04-18",20000,10000,"정상","","","",0,"",0
+ from event_books;
 
 INSERT INTO `order_sales`
 (`id`,

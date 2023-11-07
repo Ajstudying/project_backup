@@ -34,6 +34,9 @@ update foreign_books set stock_status = "예약판매";
 update books set stock_status = "품절" where SUBSTRING(books.category_name, 1, 7) LIKE '외국도서%';
 
 -- 일부도서 직접 업데이트--
+
+update books set stock_status = "1000" where id = 27;
+
 -- 노인 --
 update books set cover = "https://image.aladin.co.kr/product/32207/83/cover500/k472834526_1.jpg" where item_id = 14522431;
 -- 인페르노 --

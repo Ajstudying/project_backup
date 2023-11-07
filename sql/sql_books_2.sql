@@ -30,6 +30,8 @@ SELECT books.id, books.publisher, books.title, books.link, books.author, books.p
 
 SELECT like_books.id, like_books.new_book_id, like_books.book_id, like_books.likes, like_books.profile_id, books.id, books.publisher, books.title, books.link, books.author, books.pub_date, books.description, books.isbn, books.isbn13, books.item_id, books.price_sales, books.price_standard, books.stock_status, books.cover, books.category_id, books.category_name, books.customer_review_rank, profile.id, profile.email, profile.nickname, profile.phone, profile.identity_id FROM like_books INNER JOIN books ON books.id = like_books.book_id LEFT JOIN profile ON profile.id = like_books.profile_id WHERE (like_books.new_book_id = books.id);
 
+SELECT books.id, books.publisher, books.title, books.link, books.author, books.pub_date, books.description, books.isbn, books.isbn13, books.item_id, books.price_sales, books.price_standard, books.stock_status, books.cover, books.category_id, books.category_name, books.customer_review_rank, order_sales.id, order_sales.book_sales, order_sales.item_id, order_sales.status, order_sales.book_id FROM books INNER JOIN order_sales ON order_sales.item_id = books.item_id WHERE SUBSTRING(books.category_name, 1, 13) LIKE '국내도서>국내도서>소설/시/희곡%' GROUP BY books.item_id, order_sales.item_id, books.id, order_sales.id ORDER BY order_sales.book_sales DESC;
+
 truncate table like_books;
 select * from like_books;
 

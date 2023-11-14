@@ -1,5 +1,8 @@
 use bookshop;
 
+
+select title, book_id from books join like_books on books.id = like_books.book_id;
+
 select * from identity;
 
 select * from today_book;
@@ -38,6 +41,8 @@ FROM foreign_1;
 INSERT INTO books (publisher, title, link, author, pub_date, description, isbn, isbn13, item_id, price_sales, price_standard, stock_status, cover, category_id, category_name, customer_review_rank)
 SELECT publisher, title, link, author, pubDate, description, isbn, isbn13, itemId, priceSales, priceStandard, stockStatus, cover, categoryId, categoryName, customerReviewRank
 FROM foreignbook;
+
+SELECT books.id, books.title, like_books.id, like_books.new_book_id, like_books.book_id, like_books.likes, like_books.profile_id FROM books INNER JOIN like_books ON books.id = like_books.book_id WHERE like_books.book_id = 907;
 
 INSERT INTO order_item (publisher, title, link, author, pub_date, description, isbn, isbn13, item_id, price_sales, price_standard, stock_status, cover, category_id, category_name, customer_review_rank)
 SELECT publisher, title, link, author, pubDate, description, isbn, isbn13, itemId, priceSales, priceStandard, stockStatus, cover, categoryId, categoryName, customerReviewRank
@@ -102,6 +107,7 @@ VALUES
 
 update order_sales set book_sales=40 where id = 3;
 
+select books.id from books where books.item_id = 311817529;
 
 select title, SUM(order_item.quantity) from books
 join order_item on books.item_id = order_item.item_id

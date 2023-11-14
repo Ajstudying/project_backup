@@ -35,8 +35,10 @@ update books set stock_status = "품절" where SUBSTRING(books.category_name, 1,
 
 -- 일부도서 직접 업데이트--
 
+update today_book set cover = "https://image.aladin.co.kr/product/31181/75/cover500/k342831757_1.jpg" where id = 1;
 update books set stock_status = "1000" where id = 27;
-
+-- 주식 투자 --
+update books set cover = "https://image.aladin.co.kr/product/31181/75/cover500/k342831757_1.jpg" where id = 135;
 -- 노인 --
 update books set cover = "https://image.aladin.co.kr/product/32207/83/cover500/k472834526_1.jpg" where item_id = 14522431;
 -- 인페르노 --

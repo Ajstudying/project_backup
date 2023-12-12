@@ -115,6 +115,12 @@ group by title
 order by 2
 DESC LIMIT 10;
 
+select * from today_book;
+use bookshop;
+
+select * from books where SUBSTRING(books.category_name, 1, 13) LIKE '외국도서>%';
+select count(*) from books where SUBSTRING(books.category_name, 1, 13) LIKE '외국도서>%';
+
 SELECT books.id, books.publisher, books.title, books.link, books.author, books.pub_date, books.description, books.isbn, books.isbn13, books.item_id, books.price_sales, books.price_standard, books.stock_status, books.cover, books.category_id, books.category_name, books.customer_review_rank, order_item.id, order_item.item_id, order_item.quantity, order_item.order_price, order_item.order_id FROM books INNER JOIN order_item ON order_item.item_id = books.item_id GROUP BY books.item_id, order_item.item_id, books.id, order_item.id ORDER BY SUM(order_item.quantity) DESC;
 
 SELECT books.id, books.publisher, books.title, books.link, books.author, books.pub_date, books.description, 

@@ -91,8 +91,14 @@ update books set cover = "https://image.aladin.co.kr/product/66/71/cover500/8937
 update books set cover = "https://image.aladin.co.kr/product/11348/25/cover500/896247851x_2.jpg" where id = 176;
 -- 골프 내공--
 update books set cover = "https://image.aladin.co.kr/product/669/30/cover500/8963701425_1.jpg" where id = 384;
+-- 외서 --
+update books set cover = "https://image.aladin.co.kr/product/32711/60/cover150/f922936875_1.jpg" where id = 61;
 
-update books set cover = "https://image.aladin.co.kr/product/669/30/cover500/8963701425_1.jpg" where id = 384;
+update books set cover = "https://image.aladin.co.kr/product/32764/8/cover500/f96293628d_1.jpg" where id = 1104;
+
+update books set cover = "https://image.aladin.co.kr/product/32759/49/cover150/f912936182_2.jpg" where id = 42;
+
+update books set cover = "https://image.aladin.co.kr/product/32759/49/cover150/f912936182_2.jpg" where id = 42;
 
 
 
